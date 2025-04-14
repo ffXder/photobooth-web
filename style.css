@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+header {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 1rem 0 2rem 6rem; 
+    color: rgb(0, 0, 0);
+    font-family: "Monserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* color: white; */
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.camera-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#camera {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#photo {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.control-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+button {
+    background-color: white;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: pink;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.capture-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+}
+
+.photo-preview{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.status-message {
+    color: rgb(0, 0, 0);
+    margin-top: 1.2rem;
+    font-size: 2rem;
+}
+
+.timer-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    min-height: 40vh;
+    color: white;
+}
