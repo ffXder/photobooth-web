@@ -5,6 +5,7 @@ const timer = document.getElementById('timer');
 const photoPreview = document.getElementById('photo-preview');
 const captureBtn = document.getElementById('capture-btn');
 const saveBtn = document.getElementById('save-btn');
+const shutterSound = new Audio('assets/shuttersound.mp3');
 
 let stream = null
 let photoCount = 0;
@@ -54,6 +55,7 @@ function takeNextPhoto(){
             timer.textContent = `${countdown}`;
         } else {
             clearInterval(countdownInterval);
+            shutterSound.play();
             capturePhoto();
             photoCount++;
             takeNextPhoto();
@@ -69,8 +71,11 @@ function capturePhoto(){
     photoCanvas.height = camera.videoHeight;
 
     //draws a frame 
-    context.drawImage(camera, 0, 0, photoCanvas.width, photoCanvas.height);
-    
+    context.save();
+    context.scale(-1, 1);
+    context.drawImage(camera, -photoCanvas.width, 0, photoCanvas.width, photoCanvas.height);
+    context.restore();
+
     const imgUrl = photoCanvas.toDataURL('image/png');
     addToPreview(imgUrl);
 
