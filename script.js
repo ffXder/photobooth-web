@@ -6,6 +6,9 @@ const photoPreview = document.getElementById('photo-preview');
 const captureBtn = document.getElementById('capture-btn');
 const saveBtn = document.getElementById('save-btn');
 const shutterSound = new Audio('assets/shuttersound.mp3');
+const doneBtn = document.getElementById('done-btn');
+const previewHeader = document.getElementById('preview');
+const captureCount = document.getElementById('capture-count');
 
 let stream = null
 let photoCount = 0;
@@ -15,7 +18,7 @@ async function initCamera() {
     try {
         stream = await navigator.mediaDevices.getUserMedia({
             video: {
-                width: { ideal: 1280},
+                width: {ideal: 1280},
                 height: {ideal: 720},
                 facingMode: 'user'
             },
@@ -31,7 +34,10 @@ async function initCamera() {
     console.log('initalize camera'); //check if it works
 }
 
+//this will trigger the countdown
 function startCountdown(){
+    captureBtn.textContent = 'Capturing...';
+    captureBtn.disabled = true;
     photoPreview.innerHTML = '';
     photoCount = 0;
     takeNextPhoto();
@@ -40,6 +46,12 @@ function startCountdown(){
 function takeNextPhoto(){
     if (photoCount >= maxPhotos){
         statusMessage.textContent = 'Done!';
+        doneBtn.disabled = false;
+        doneBtn.style.display = 'flex';
+
+        //enable retake
+        captureBtn.textContent = 'Retake';
+        captureBtn.disabled = false;
         return;
     }
 
@@ -53,14 +65,17 @@ function takeNextPhoto(){
         if (countdown > 0){
             statusMessage.textContent = `Get ready... ${countdown}`;
             timer.textContent = `${countdown}`;
-        } else {
+            return;
+        }
+
             clearInterval(countdownInterval);
-            shutterSound.play();
+            shutterSound.play(); //play the shutter sound
             capturePhoto();
             photoCount++;
+            captureCount.textContent = `${photoCount}/3`;
             takeNextPhoto();
-        }
-    }, 1000); //interval time miliseconds
+        
+    }, 1000); //interval time milliseconds
 }
 
 //captures photo
@@ -82,16 +97,23 @@ function capturePhoto(){
     //shutter effect
     document.body.style.backgroundColor = 'black';
     setTimeout(() => {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.backgroundColor = 'rgb(231, 231, 217)';
     }, 100);
     
     console.log('this works');
 }
 
+function resetCamera() {
+    
+}
 //adds to preview
 function addToPreview(imgUrl){
+
+    previewHeader.style.display = 'flex';
+
+    //create img element
     const img = document.createElement('img');
-    img.src = imgUrl;
+    img.src = imgUrl; //this element will get the image
     img.style.width = '200px';
     img.style.height = 'auto';
     img.style.borderRadius = '6px';
@@ -131,7 +153,24 @@ function addToPreview(imgUrl){
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    //initialize camera once the web is loaded
     initCamera();
 });
 
-captureBtn.addEventListener('click', startCountdown);
+captureBtn.addEventListener('click', () => {
+    if (captureBtn.textContent === 'Retake') {
+        photoPreview.innerHTML = '';
+        photoCount = 0;
+        captureCount.textContent = `${photoCount}/3`
+        doneBtn.disabled = true;
+        doneBtn.style.display = 'none';
+        previewHeader.style.display = 'none';
+        startCountdown();
+    } else {
+        startCountdown();
+    }
+});
+
+doneBtn.addEventListener('click', ()=> {
+    window.location.href = 'customize.html';
+});
