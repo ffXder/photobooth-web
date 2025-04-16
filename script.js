@@ -173,4 +173,8 @@ captureBtn.addEventListener('click', () => {
 
 doneBtn.addEventListener('click', ()=> {
     window.location.href = 'customize.html';
+    // const images = Array.from(photoPreview.querySelectorAll('img').map(img => img.src));
+    
+    // //this will store the images and ready for passing in customize page
+    // localStorage.setItem('capturedPhotos', JSON.stringify(images)); 
 });
