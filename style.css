@@ -9,6 +9,7 @@ header {
     font-size: 1rem;
     font-weight: 100;
 }
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(231, 231, 217);
@@ -23,23 +24,28 @@ h1 {
     margin: 0;
 }
 
+/* FOR THE MAIN CONTAINER */
 .container {
     width: 90%;
     max-width: 800px;
     margin: 1.2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
+/* FOR CAMERA CONTAINER DIV ELEMENT */
 .camera-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     position: relative;
     width: 100%;
     max-width: 640px;
     border-radius: 12px;
     overflow: hidden;
 }
-
 #camera {
     width: 100%;
     height: auto;
@@ -53,6 +59,7 @@ h1 {
     height: auto;
 }
 
+/* FOR CONTROL DIV */
 .control-container {
     position: relative;
     display: flex;
@@ -73,7 +80,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(247, 226, 229);
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     transform: translateY(-2px);
 }
@@ -92,28 +99,44 @@ button:hover {
     opacity: 1;
 }
 
+/* FOR PREVIEW DIV */
+.preview-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 20px;
+    padding: 1rem;
+}
+
 .photo-preview{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    margin-top: 0.75rem;
+    /* margin-top: 0.75rem; */
     font-family: "Abel", sans-serif;
 }
 
+.photo-preview img{
+    width: 120px;
+}
 .preview {
     font-family: "Abel", sans-serif;
     font-size: 1.2;
     display: none;
 }
 
+ /* STATUS DIV */
 .status-message {
+    display: flex;
+    justify-content: center;
     color: rgb(0, 0, 0);
     margin-top: 1.2rem;
     font-size: 1.78rem;
     font-family: "Abel", sans-serif;
 }
 
+/* FOR TIMER DIV */
 .timer-container {
     position: fixed;
     top: 50%;
@@ -133,7 +156,10 @@ button:hover {
 }
 
 .capture-count {
+    display: flex;
+    justify-content: center;
     font-family: "Abel", sans-serif;
     font-size: 1.2;
     font-weight: 500;
+    margin: 10px;
 }
