@@ -9,31 +9,34 @@
 </head>
 <body>
     <header>
-        <h1>PhotoBooth</h1>
+        <h1>PHOTOBOOTH</h1>
     </header>
 
     <div class = "container">
-       
-        <h2 class="capture-count" id = "capture-count">0/3</h2>
-        <div class = "camera-container">
-            <video id = "camera" autoplay playsinline></video>
-            <canvas id = "photo"></canvas>
-            <div class = "timer-container" id = "timer">Test</div>
+       <div class = "camera-view">
+            <h2 class="capture-count" id = "capture-count">0/3</h2>
+            
+            <div class = "camera-container">
+                <video id = "camera" autoplay playsinline></video>
+                <canvas id = "photo"></canvas>
+                <div class = "timer-container" id = "timer">Test</div>
+            </div>
+
+            <div class = "status-message" id="status"></div>
+
+            <div class = "control-container">
+                <button id = "capture-btn">Capture</button>
+                <button id = "done-btn" disabled>Done</button>
+            </div>
         </div>
     
 
         <div class = "timer-container" id = "timer">Test</div>
-        <div class = "status-message" id="status"></div>
-
-        <div class = "control-container">
-            <button id = "capture-btn">Capture</button>
-            <button id = "done-btn" disabled>Done</button>
+    
+        <div class = "preview-side">
+            <h2 class = "preview" id = "preview">Photo Preview</h2>
+            <div class = "photo-preview" id = "photo-preview"></div>
         </div>
-
-    
-        <h2 class = "preview" id = "preview">Photo Preview</h2>
-        <div class = "photo-preview" id = "photo-preview"></div>
-    
     </div>
 </body>
 </html>
