@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+header {
+    background-color: rgb(231, 231, 217);
+    width: 100%;
+    /* top right */
+    padding: 1.5rem 0 2rem 1.5rem; 
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+    font-family: "Abel", sans-serif;
+    font-size: 0.90rem;
+    font-weight: 100;
+    box-sizing: border-box ;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(231, 231, 217);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* color: white; */
+}
+
+h1 {
+    margin: 0;
+}
+
+/* FOR THE MAIN CONTAINER */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FOR CAMERA CONTAINER DIV ELEMENT */
+.camera-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+#camera {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 480px;
+    transform: scaleX(-1);
+}
+
+#photo {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+/* FOR CONTROL DIV */
+.control-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+button {
+    background-color: rgb(231, 231, 217);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-family: "Abel", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px);
+}
+
+.capture-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+}
+
+#done-btn {
+    /* hides the button */
+    display: none;
+}
+
+#done-btn.show {
+    opacity: 1;
+}
+
+/* FOR PREVIEW DIV */
+.preview-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 20px;
+    padding: 1rem;
+}
+
+.photo-preview{
+    display: flex;
+    flex-wrap: row;
+    justify-content: center;
+    gap: 1rem;
+    /* margin-top: 0.75rem; */
+    font-family: "Abel", sans-serif;
+}
+
+.photo-preview img{
+    width: 120px;
+}
+.preview {
+    font-family: "Abel", sans-serif;
+    font-size: 1.2;
+    display: none;
+}
+
+ /* STATUS DIV */
+.status-message {
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    margin-top: 1.2rem;
+    font-size: 1.78rem;
+    font-family: "Abel", sans-serif;
+}
+
+/* FOR TIMER DIV */
+.timer-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.timer-container.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.capture-count {
+    display: flex;
+    justify-content: center;
+    font-family: "Abel", sans-serif;
+    font-size: 1.2;
+    font-weight: 500;
+    margin: 10px;
+}
