@@ -96,6 +96,7 @@ function capturePhoto(){
 
     //shutter effect
     document.body.style.backgroundColor = 'black';
+    
     setTimeout(() => {
         document.body.style.backgroundColor = 'rgb(231, 231, 217)';
     }, 100);
