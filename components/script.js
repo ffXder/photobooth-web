@@ -115,10 +115,14 @@ function addToPreview(imgUrl){
     //create img element
     const img = document.createElement('img');
     img.src = imgUrl; //this element will get the image
-    img.style.width = '200px';
+    img.style.width = '150px';
     img.style.height = 'auto';
-    img.style.borderRadius = '6px';
+    img.style.borderRadius = '8px';
     img.style.cursor = 'pointer';
+    img.style.display = 'block';
+    img.style.marginBottom = '1rem';
+    img.style.float = 'none';
+    img.style.position = 'relative';
 
     img.addEventListener('click', () => {
         //create div element
@@ -137,9 +141,10 @@ function addToPreview(imgUrl){
         //create img element
         const previewImg = document.createElement('img');
         previewImg.src = imgUrl;
-        previewImg.style.maxWidth = '100%';
-        previewImg.style.maxHeight = '100%';
+        previewImg.style.maxWidth = '90%';
+        previewImg.style.maxHeight = '90%';
         previewImg.style.borderRadius = '8px';
+        previewImg.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
 
         preview.appendChild(previewImg);
         document.body.appendChild(preview);
