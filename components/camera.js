@@ -14,6 +14,7 @@ let stream = null
 let photoCount = 0;
 const maxPhotos = 3;
 
+// initialize camera
 async function initCamera() {
     try {
         stream = await navigator.mediaDevices.getUserMedia({
@@ -34,7 +35,7 @@ async function initCamera() {
     console.log('initalize camera'); //check if it works
 }
 
-//this will trigger the countdown
+// this will trigger the countdown
 function startCountdown(){
     captureBtn.textContent = 'Capturing...';
     captureBtn.disabled = true;
@@ -43,6 +44,7 @@ function startCountdown(){
     takeNextPhoto();
 }
 
+// takeNextPhoto
 function takeNextPhoto(){
     if (photoCount >= maxPhotos){
         statusMessage.textContent = 'Done!';
